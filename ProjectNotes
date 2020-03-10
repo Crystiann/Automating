@@ -1,0 +1,28 @@
+NOTES:
+A short program to automatically start a browser when computer starts and
+after waiting 1.5 hours shutdown the computer. Great in the morning to
+wake up and not pay attention to computer.
+
+If you have password for windows go to search->netplwiz->uncheck 'Users must enter a user name and password to use this computer"->apply
+->password
+Now it will login without asking for password
+
+print(pyautogui.position())  # use this to find the cursor position
+
+For the file to start at computer start up pcreate a bat file that runs your script and place it(or a shortcut to the bat file) in the following location
+'C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+or
+win+r and type shell:startup
+Text for the bat file:
+@echo off
+python "E:\path to script\scriptName.py %"
+pause  # the pause is optional, useful so that it keeps cmd open and trace errors and process
+
+Important: go to gmail account -> settings -> security -> less secure app access and turn it on (it will not work otherwise)
+
+If you have dual OS - win and ubuntu install grub-customizer from the ubuntu terminal
+commands:
+sudo apt-get-repository ppa:danielrichter2007/grub-customizer
+sudo apt-get update
+sudo apt install grub-customizer
+open grub customizer -> select win and move it on first position(if you want o modify the time for starting OS go to Advanced settings-boot default entry after)
