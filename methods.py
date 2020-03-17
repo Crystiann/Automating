@@ -38,7 +38,6 @@ class Time:
         return datetime.datetime.now()
 
 
-
 class Browser:
     def open_browser(self, url, loading_time):
         wb.open(url)
@@ -84,10 +83,12 @@ class Computer:
 
     def move_pointer(self, interval, waittime_between_interval, waittime_space):
         for _ in range(interval):
-            time_event = threading.Event()
-            time_event.wait(waittime_between_interval)
+            # time_event = threading.Event()
+            # time_event.wait(waittime_between_interval)
+            time.sleep(waittime_between_interval)
             pyautogui.moveTo(638, 806, duration=1)
             pyautogui.moveTo(569, 454, duration=1)
             pyautogui.press('space')
-            time_event.wait(waittime_space)
+            # time_event.wait(waittime_space)
+            time.sleep(waittime_space)
             pyautogui.press('space')
